@@ -1,62 +1,110 @@
 "use client";
+import Link from 'next/link';
 
-export default function About() {
+export default function AboutPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4" dir="rtl">
-      {/* البطاقة الرئيسية */}
-      <div className="w-full max-w-2xl bg-white/10 backdrop-blur-3xl border border-white/20 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden">
-        
-        {/* الجزء العلوي - العنوان */}
-        <div className="bg-gradient-to-l from-blue-600/40 to-indigo-600/40 p-8 text-center border-b border-white/10">
-          <h1 className="text-3xl font-black text-white tracking-wide">
-            بطاقة التعريف الرقمية
-          </h1>
-          <div className="h-1 w-20 bg-blue-400 mx-auto mt-4 rounded-full"></div>
-        </div>
+    <div dir="rtl" style={{ 
+      backgroundColor: '#0a0a1a', 
+      height: '100vh', 
+      color: 'white', 
+      fontFamily: 'sans-serif',
+      display: 'flex',
+      flexDirection: 'column',
+      overflow: 'hidden',
+      position: 'relative'
+    }}>
 
-        {/* محتوى البيانات بتنسيق مركزي مركب */}
-        <div className="p-10 space-y-10">
+      {/* خلفية جمالية خفيفة */}
+      <div style={{ position: 'absolute', top: '20%', left: '10%', width: '200px', height: '200px', backgroundColor: 'rgba(59, 130, 246, 0.1)', filter: 'blur(80px)', borderRadius: 'full' }}></div>
+
+      {/* Navbar */}
+      <nav style={{ padding: '15px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
+        <div style={{ fontWeight: '900', color: '#3b82f6', letterSpacing: '-1px' }}>ET-ASU</div>
+        <Link href="/" style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '14px', border: '1px solid #333', padding: '5px 15px', borderRadius: '15px' }}>
+          الرئيسية
+        </Link>
+      </nav>
+
+      {/* الكارت */}
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', zIndex: 10 }}>
+        <div style={{ 
+          width: '100%', 
+          maxWidth: '600px', 
+          backgroundColor: 'rgba(255, 255, 255, 0.03)', 
+          backdropFilter: 'blur(15px)', 
+          borderRadius: '30px', 
+          border: '1px solid rgba(255, 255, 255, 0.1)', 
+          padding: '30px',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.3)'
+        }}>
           
-          <div className="grid grid-cols-1 gap-8">
-            {/* الاسم */}
-            <div className="text-center group">
-              <p className="text-blue-400 text-sm font-bold mb-2 uppercase tracking-widest">الاسم الكامل</p>
-              <p className="text-white text-3xl font-bold bg-white/5 py-3 rounded-2xl border border-white/5 group-hover:border-blue-500/50 transition-all">
-                منة الله سيد محمد رمضان
+          <div style={{ marginBottom: '20px' }}>
+            <span style={{ backgroundColor: 'rgba(59, 130, 246, 0.2)', color: '#60a5fa', padding: '5px 12px', borderRadius: '10px', fontSize: '12px', fontWeight: 'bold' }}>
+              بطاقة تعريفية
+            </span>
+            <h1 style={{ fontSize: '1.8rem', fontWeight: '800', marginTop: '10px', color: 'white' }}>
+              عن المنصة التعليمية
+            </h1>
+          </div>
+
+          <p style={{ fontSize: '1rem', lineHeight: '1.7', color: '#cbd5e1', marginBottom: '25px', borderRight: '3px solid #3b82f6', paddingRight: '15px' }}>
+            بيئة تعلم رقمية تفاعلية مخصصة لتدريس مهارات برنامج Microsoft Word، تم تصميمها بمعايير تكنولوجيا التعليم لضمان تجربة تعلم ذكية وفعالة.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '20px' }}>
+              <h3 style={{ color: '#3b82f6', fontSize: '1rem', marginBottom: '10px' }}>🎯 الأهداف</h3>
+              <p style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+                تقديم محتوى مرئي واضح، تعزيز التعلم الذاتي، وتوفير تقييم فوري.
               </p>
             </div>
 
-            {/* صف المعلومات الثنائية */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="text-center">
-                <p className="text-blue-400 text-sm font-bold mb-2">الفرقة</p>
-                <p className="text-white text-xl font-semibold bg-white/5 py-3 rounded-2xl border border-white/5">الثالثة</p>
-              </div>
-              <div className="text-center">
-                <p className="text-blue-400 text-sm font-bold mb-2">التخصص</p>
-                <p className="text-white text-xl font-semibold bg-white/5 py-3 rounded-2xl border border-white/5">تكنولوجيا التعليم</p>
-              </div>
+            <div style={{ backgroundColor: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '20px' }}>
+              <h3 style={{ color: '#3b82f6', fontSize: '1rem', marginBottom: '10px' }}>👤 الطالبة</h3>
+              <p style={{ fontWeight: 'bold' }}>منة الله سيد</p>
             </div>
           </div>
-
-          {/* قسم الإشراف - بتصميم أبسط وأجمل */}
-          <div className="pt-8 border-t border-white/10">
-            <p className="text-center text-blue-300/70 text-sm mb-6 font-medium">إشراف أكاديمي</p>
-            <div className="flex justify-center gap-4">
-              <div className="bg-gradient-to-br from-white/10 to-transparent px-6 py-3 rounded-full border border-white/10 text-white font-medium shadow-sm">
-                د/ أمل حسان
-              </div>
-              <div className="bg-gradient-to-br from-white/10 to-transparent px-6 py-3 rounded-full border border-white/10 text-white font-medium shadow-sm">
-                د/ محمد عادل
-              </div>
-            </div>
-          </div>
-
         </div>
-        
-        {/* تذييل البطاقة لإعطاء شكل جمالي */}
-        <div className="h-2 bg-gradient-to-l from-blue-500 to-indigo-500"></div>
       </div>
+
+      {/* Buttons (بدون زر الامتحان) */}
+      <div style={{
+        display: 'flex',
+        gap: '15px',
+        justifyContent: 'center',
+        marginBottom: '30px',
+        zIndex: 10
+      }}>
+
+        <Link href="/Lessons/Lesson1">
+          <button style={{
+            padding: '10px 20px',
+            borderRadius: '15px',
+            border: '1px solid rgba(59,130,246,0.5)',
+            backgroundColor: 'rgba(59,130,246,0.15)',
+            color: '#60a5fa',
+            fontWeight: 'bold',
+            cursor: 'pointer'
+          }}>
+            📚 ابدأ الدروس
+          </button>
+        </Link>
+
+        <Link href="/">
+          <button style={{
+            padding: '10px 20px',
+            borderRadius: '15px',
+            border: '1px solid #333',
+            backgroundColor: 'rgba(255,255,255,0.05)',
+            color: '#cbd5e1',
+            cursor: 'pointer'
+          }}>
+            🏠 الرئيسية
+          </button>
+        </Link>
+
+      </div>
+
     </div>
   );
 }

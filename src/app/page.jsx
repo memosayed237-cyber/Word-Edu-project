@@ -1,67 +1,128 @@
 "use client";
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function HomePage() {
   const lessons = [
-    { id: 1, title: "التعريف بالبرنامج", desc: "ما هو وورد وما أهميته؟", color: "from-blue-500 to-cyan-400" },
-    { id: 2, title: "واجهة البرنامج", desc: "شرح القوائم والأدوات الأساسية", color: "from-purple-500 to-pink-400" },
-   
-    { id: 3, title: "تنسيق الفقرات", desc: "المحاذاة، التباعد، والترقيم", color: "from-orange-500 to-yellow-400" },
-    { id: 4, title: "إدراج الجداول", desc: "تصميم وتنظيم البيانات بجداول", color: "from-rose-500 to-red-400" },
-    { id: 5, title: "إعدادات الصفحة", desc: "إضافة الوسائط وتنسيقها", color: "from-indigo-500 to-blue-400" },
-    { id: 6, title: "الطباعة والحفظ", desc: "إعداد المستند للإخراج النهائي", color: "from-amber-500 to-orange-400" },
+    { id: 1, title: "التعريف بالبرنامج", desc: "ما هو وورد وما أهميته؟" },
+    { id: 2, title: "واجهة البرنامج", desc: "شرح القوائم والأدوات الأساسية" },
+    { id: 3, title: "تنسيق الفقرات", desc: "المحاذاة، التباعد، والترقيم" },
+    { id: 4, title: "إدراج الجداول", desc: "تصميم وتنظيم البيانات بجداول" },
+    { id: 5, title: "إعدادات الصفحة", desc: "إضافة الوسائط وتنسيقها" },
+    { id: 6, title: "الطباعة والحفظ", desc: "إعداد المستند للإخراج النهائي" },
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-10" dir="rtl">
-      
-      {/* 1. شريط العنوان الكبير والمتفاعل */}
-      <section className="relative mb-20 group">
-        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-        <div className="relative bg-[#0f172a] border border-white/10 rounded-[2rem] p-12 text-center overflow-hidden">
-          {/* تأثير ضوئي متحرك خلف العنوان */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -mr-20 -mt-20 animate-pulse"></div>
-          
-          <h1 className="text-5xl md:text-6xl font-black mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400">
+    <div style={{ minHeight: "100vh", paddingBottom: "80px" }}>
+
+      {/* NAVBAR */}
+      <nav
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "20px 60px",
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          backdropFilter: "blur(12px)",
+          background: "rgba(10,15,30,0.6)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+        }}
+      >
+        <div
+          style={{
+            fontSize: "28px",
+            fontWeight: "900",
+            color: "#38bdf8",
+            letterSpacing: "1px",
+          }}
+        >
+          ET-ASU
+        </div>
+
+        <div style={{ display: "flex", gap: "18px", alignItems: "center" }}>
+          <Link href="/" className="nav-link">
+            الرئيسية
+          </Link>
+
+          <Link href="/about" className="nav-link">
+            عن المنصة
+          </Link>
+
+          <Link href="/exam">
+            <button className="hero-btn">ابدأ الاختبار</button>
+          </Link>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section
+        style={{
+          textAlign: "center",
+          marginTop: "80px",
+          padding: "0 20px",
+        }}
+      >
+        <div
+          style={{
+            display: "inline-block",
+            padding: "35px 60px",
+            borderRadius: "30px",
+            background:
+              "linear-gradient(135deg, rgba(70, 146, 168, 0.15), rgba(72, 138, 219, 0.08))",
+            border: "1px solid rgba(109, 192, 228, 0.3)",
+            boxShadow:
+              "0 0 40px rgba(56,189,248,0.15), inset 0 0 25px rgba(56,189,248,0.08)",
+          }}
+        >
+          <h1 style={{ fontSize: "3.5rem", marginBottom: "15px", color: "#fff" }}>
             منصة تعلم Microsoft Word
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            رحلتك نحو احتراف معالجة النصوص تبدأ من هنا. سبعة دروس تفاعلية مصممة خصيصاً لتكنولوجيا التعليم.
+
+          <p style={{ maxWidth: "700px", color: "#94a3b8", fontSize: "1.15rem", margin: "auto" }}>
+            تعلم برنامج Word من الصفر حتى الاحتراف من خلال دروس تفاعلية واختبارات عملية بشكل عصري وممتع.
           </p>
         </div>
       </section>
 
-      {/* 2. قسم الدروس بتصميم بطاقات ملونة */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {lessons.map((lesson) => (
-          <Link href={`/Lessons/Lesson${lesson.id}`} key={lesson.id} className="group">
-            <div className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:border-white/20 transition-all duration-300 hover:-translate-y-2">
-              
-              {/* رقم الدرس كعلامة مائية ملونة */}
-              <div className={`absolute top-4 left-6 text-6xl font-black opacity-10 bg-clip-text text-transparent bg-gradient-to-br ${lesson.color}`}>
-                0{lesson.id}
-              </div>
+      {/* LESSONS */}
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "70px auto",
+          padding: "0 20px",
+        }}
+      >
+        <div className="lessons-grid">
+          {lessons.map((lesson) => (
+            <Link
+              href={`/Lessons/Lesson${lesson.id}`}
+              key={lesson.id}
+              style={{ textDecoration: "none" }}
+            >
+              <div className="lesson-card">
+                <div className="lesson-number">
+                  Lesson {lesson.id}
+                </div>
 
-              <div className={`w-12 h-1.5 rounded-full bg-gradient-to-r ${lesson.color} mb-6`}></div>
-              
-              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                {lesson.title}
-              </h3>
-              
-              <p className="text-slate-400 leading-relaxed mb-6">
-                {lesson.desc}
-              </p>
+                <div>
+                  <h3>{lesson.title}</h3>
+                  <p>{lesson.desc}</p>
+                </div>
 
-              <div className="flex items-center text-sm font-bold text-blue-400 group-hover:gap-2 transition-all">
-                ابدأ الدرس الآن 
-                <span className="mr-2">←</span>
+                <div style={{ marginTop: "25px" }}>
+                  <span className="btn-cyan">
+                    دخول الدرس →
+                  </span>
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
+
+        {/* ❌ شيلنا زرار السابق والتالي فقط */}
+
       </div>
-
-</div>
-
+    </div>
   );
 }
